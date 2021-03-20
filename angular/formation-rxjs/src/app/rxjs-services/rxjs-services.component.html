@@ -1,4 +1,9 @@
 Chainage d'appels
 
+<div [formGroup]="formGroup">
+  Nom : <input type="text" formControlName="lastName" />
+</div>
+SearchResult : {{ searchResult$ | async }}
 
-Replay
+<button (click)="sendSearch$.next()">Envoyer</button>
+<button (click)="sendSearchSubscribe$.next()">Envoyer avec subscribe</button>

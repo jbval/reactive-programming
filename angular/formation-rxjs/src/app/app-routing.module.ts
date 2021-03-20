@@ -6,6 +6,7 @@ import { RxjsServicesComponent } from './rxjs-services/rxjs-services.component';
 const routes: Routes = [
   { path: 'operators', component: RxjsOperatorsComponent },
   { path: 'services', component: RxjsServicesComponent },
+
 ];
 
 @NgModule({
