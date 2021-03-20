@@ -1,9 +1,15 @@
-<p>
-  <a [routerLink]="'/operators'" routerLinkActive="router-link-active"
-    >Opérateurs</a
-  >
-  <a [routerLink]="'/services'" routerLinkActive="router-link-active"
-    >Services</a
-  >
-</p>
+<div>
+  <ul>
+    <li>
+      <a [routerLink]="'/operators'" routerLinkActive="router-link-active"
+        >Opérateurs</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="'/services'" routerLinkActive="router-link-active"
+        >Services</a
+      >
+    </li>
+  </ul>
+</div>
 <router-outlet></router-outlet>

@@ -1,21 +1,32 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
-import { map, startWith, filter } from 'rxjs/operators';
+import {
+  map,
+  startWith,
+  filter,
+  debounce,
+  debounceTime,
+  share,
+  shareReplay,
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs-operators',
   templateUrl: './rxjs-operators.component.html',
   styleUrls: ['./rxjs-operators.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RxjsOperatorsComponent{
+export class RxjsOperatorsComponent {
   title = 'formation-rxjs';
   form: FormGroup;
   fullNameCombineLatest$: Observable<string>;
   fullNameStartsWith$: Observable<string>;
   fullNameMinLength$: Observable<string>;
   fullNameMinLengthGlobal$: Observable<string>;
+  fullNameBounce$: Observable<string>;
+  fullNameShare$: Observable<string>;
+  fullNameShareReplay$: Observable<string>;
 
   /**
    *
@@ -49,6 +60,12 @@ export class RxjsOperatorsComponent{
       filter(([lastName, firstName]) => lastName.length > 3),
       map(([lastName, firstName]) => `${firstName}-${lastName}`)
     );
-  }
 
+    this.fullNameBounce$ = lastName$.pipe(debounceTime(200));
+
+    this.fullNameShare$ = lastName$.pipe(share());
+    this.fullNameShareReplay$ = lastName$.pipe(
+      shareReplay({ refCount: true, bufferSize: 1 })
+    );
+  }
 }
