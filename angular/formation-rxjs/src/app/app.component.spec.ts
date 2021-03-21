@@ -1,35 +1,42 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { fakeAsync, tick } from '@angular/core/testing';
+import { timer } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { TestScheduler } from 'rxjs/testing';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+  const testScheduler = new TestScheduler((actual, expected) => {
+    expect(actual).toEqual(expected);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  // Specific angular
+  it('test Async', fakeAsync(() => {
+    let result = -1;
+    timer(100).subscribe((t) => (result = t));
+    expect(result).toEqual(-1);
+    tick(100);
+    expect(result).toEqual(0);
+  }));
 
-  it(`should have as title 'formation-rxjs'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('formation-rxjs');
-  });
+  // Spécifique RxJs pas de dépendance angular
+  it('Test marble', () =>
+    testScheduler.run((helpers) => {
+      const { cold, expectObservable, expectSubscriptions } = helpers;
+      const values = { a: { name: 'test' }, b: { name: 'testSaisie2' }, x: 0 };
+      const source = cold('--x--x|', values);
+      const query = cold('a---b|', values);
+      const expected = '--a--a---b|';
+      const resultStream = source.pipe(switchMap(() => query));
+      expectObservable(resultStream).toBe(expected, values);
+    }));
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('formation-rxjs app is running!');
-  });
+  it('Test marble échec', () =>
+    testScheduler.run((helpers) => {
+      const { cold, expectObservable } = helpers;
+      const values = { a: { name: 'test' }, b: { name: 'testSaisie2' }, x: 0 };
+      const source = cold('--x--x|', values);
+      const query = cold('a---b|', values);
+      const expected = '--a--a---a|';
+      const resultStream = source.pipe(switchMap(() => query));
+      expectObservable(resultStream).toBe(expected, values);
+    }));
 });
