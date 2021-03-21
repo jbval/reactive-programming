@@ -7,9 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.component';
 import { RxjsServicesComponent } from './rxjs-services/rxjs-services.component';
+import { RxjsStoreComponent } from './rxjs-store/rxjs-store.component';
+import { StoreComp1Component } from './rxjs-store/store-comp1/store-comp1.component';
 
 @NgModule({
-  declarations: [AppComponent, RxjsOperatorsComponent, RxjsServicesComponent],
+  declarations: [
+    AppComponent,
+    RxjsOperatorsComponent,
+    RxjsServicesComponent,
+    RxjsStoreComponent,
+    StoreComp1Component,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,7 +25,6 @@ import { RxjsServicesComponent } from './rxjs-services/rxjs-services.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  // providers: [HttpClient],
   bootstrap: [AppComponent],
   entryComponents: [RxjsOperatorsComponent, AppComponent],
   exports: [RxjsServicesComponent],

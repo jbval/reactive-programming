@@ -1,0 +1,5 @@
+<p>Sous composant</p>
+<div *ngIf="currentContracts$ | async as contract">
+  <p>Id : {{ contract.id }}</p>
+  <p>Title : {{ contract.title }}</p>
+</div>
