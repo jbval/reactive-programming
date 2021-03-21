@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "RxJs Server side",
+  "steps": [
+    {
+      "file": "src/app.controller.ts",
+      "description": "Méthode Serveur : Transformation d'une variable synchrone en asynchrone et enchainement des actions",
+      "line": 12
+    }
+  ]
+}
