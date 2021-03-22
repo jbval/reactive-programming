@@ -1,0 +1,26 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Demo 4 : ReactiveForm",
+  "steps": [
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**ReactiveForm Angular**\r\n* Création du formulaire",
+      "line": 36
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "* Chaque formControl a une propriété valueChanges\r\n* cette propriété retourne un observable\r\n* on va donc pouvoir s'en servir comme n'importe quel flux de notre application",
+      "line": 43
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.html",
+      "description": "**Pipe**\r\n* le | async spécifique à Angular va nous permettre de gérer la souscription \r\n* le pipe gère aussi le désabonnement auto quand le composant est déchargé",
+      "line": 14
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.html",
+      "description": "**Condition & Pipe**\r\n* On va pouvoir conditionner l'affichage à la récupération de notre observable\r\n* Récupérer la valeur dans une variable locale\r\n",
+      "line": 28
+    }
+  ]
+}

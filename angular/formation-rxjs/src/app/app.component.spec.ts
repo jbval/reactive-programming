@@ -17,6 +17,7 @@ describe('AppComponent', () => {
     expect(result).toEqual(0);
   }));
 
+
   // Spécifique RxJs pas de dépendance angular
   it('Test marble', () =>
     testScheduler.run((helpers) => {

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Demo 1 : Operateurs",
+  "steps": [
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**Création d'un mapping simple**\r\n\r\n* pipe() permet de brancher une chainage d'actions\r\n* map() permet de projeter le contenu de l'observable vers un nouveau contenu ",
+      "line": 51
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**Combinaison d'observables**\r\n\r\n* combineLatest() : va attendre l'émission de tous les observables pour chainer les actions suivantes\r\n* pipe() : permet de brancher le chainage des actions\r\n* map() : projection du contenu",
+      "line": 55
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**Utilisation d'une valeur initiale**\r\n\r\n* startWith() va permettre de définir une valeur de départ et va donc déclencher immédiatement un nouveau flux à chaque changement",
+      "line": 59
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**Utilisation de filter**\r\n\r\n* filter() dans le flux d'entrée va nous permettre de limiter le chainage des flux à partir de 3 caractères pour le nom",
+      "line": 63
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**Filter post combinaison des flux**\r\n\r\n* filter() ici va réagir après que les flux ait changé",
+      "line": 71
+    },
+    {
+      "file": "src/app/rxjs-operators/rxjs-operators.component.ts",
+      "description": "**Debounce**\r\n\r\n* debounce() va permettre de retarder le rafraichissement des flux\r\n* Utile sur des appels serveurs dans le cas d'un autocomplete par exemple",
+      "line": 75
+    }
+  ]
+}

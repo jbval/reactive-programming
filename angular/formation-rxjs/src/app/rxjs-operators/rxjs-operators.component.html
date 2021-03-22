@@ -9,6 +9,8 @@
   </div>
 </div>
 
+<p>{{lastNameFormat$ | async}}</p>
+
 <p>Bonjour CombineLatest {{ fullNameCombineLatest$ | async }}</p>
 <p>Bonjour CombineLatest + startwith {{ fullNameStartsWith$ | async }}</p>
 <p>
@@ -20,9 +22,9 @@
 <p>
   Bounce : {{fullNameBounce$ | async}}
 </p>
-<p>
-  Share : {{fullNameShare$ | async}}
-</p>
-<p>
-  ShareReplay : {{fullNameShareReplay$ | async}}
-</p>
+
+
+
+<div *ngIf="lastNameFormat$ | async as lastName">
+  Texte conditionné par la saisie du nom
+</div>

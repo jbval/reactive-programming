@@ -1,0 +1,36 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Demo 7 : Store",
+  "steps": [
+    {
+      "file": "src/app/rxjs-store/store.service.ts",
+      "description": "**Store**\r\n* Exemple ultra simplifié d'un store (plusieurs bibliothèque pour votre SPA préféré existent)\r\n* Création d'un point d'entrée unique\r\n* Je veux pour chaque modification de contrat, que tous mes écrans qui affichent le contrat sur la page soient rafraichi",
+      "line": 8
+    },
+    {
+      "file": "src/app/rxjs-store/store.service.ts",
+      "description": "* Je vais créer un BehaviorSubject pour avoir une valeur initiale au contrat courant\r\n* c'est cet observable qui sera utilisé dans les écrans ayant besoin d'un contrat",
+      "line": 9
+    },
+    {
+      "file": "src/app/rxjs-store/store.service.ts",
+      "description": "* tout action exterieur va récupérer le contrat avec l'id passé en paramètre",
+      "line": 12
+    },
+    {
+      "file": "src/app/rxjs-store/rxjs-store.component.html",
+      "description": "**Composant ayant 2 sous composants sans lien dans la même page**",
+      "line": 5
+    },
+    {
+      "file": "src/app/rxjs-store/store-comp1/store-comp1.component.ts",
+      "description": "* A l'intérieur du composant on va récupérer le contrat courant depuis le store\r\n* Et après tout fonctionne comme les exemples précédents pour l'affichage",
+      "line": 14
+    },
+    {
+      "file": "src/app/rxjs-store/rxjs-store.component.ts",
+      "description": "Sur une action de mon écran, je mets à jour le contrat courant et je mets à jour le store",
+      "line": 15
+    }
+  ]
+}

@@ -25,22 +25,31 @@ export class RxjsOperatorsComponent {
   fullNameMinLength$: Observable<string>;
   fullNameMinLengthGlobal$: Observable<string>;
   fullNameBounce$: Observable<string>;
-  fullNameShare$: Observable<string>;
-  fullNameShareReplay$: Observable<string>;
+  lastNameFormat$: Observable<string>;
 
   /**
    *
    */
   constructor() {
+
+    // Définition de formulaire
     this.form = new FormGroup({
       lastName: new FormControl(''),
       firstName: new FormControl(''),
     });
+
+
+    // Point de départ : Observable en entrée
     const lastName$ = this.form.get('lastName')
       ?.valueChanges as Observable<string>;
     const firstName$ = this.form.get('firstName')
       ?.valueChanges as Observable<string>;
 
+    // Map simple
+    this.lastNameFormat$ = lastName$.pipe(map(ln => ln.toUpperCase()));
+
+
+    // Combinaison et utilisation d'opérateurs plus complexes
     this.fullNameCombineLatest$ = combineLatest([lastName$, firstName$]).pipe(
       map(([lastName, firstName]) => `${firstName}-${lastName}`)
     );
@@ -63,9 +72,6 @@ export class RxjsOperatorsComponent {
 
     this.fullNameBounce$ = lastName$.pipe(debounceTime(200));
 
-    this.fullNameShare$ = lastName$.pipe(share());
-    this.fullNameShareReplay$ = lastName$.pipe(
-      shareReplay({ refCount: true, bufferSize: 1 })
-    );
+
   }
 }
