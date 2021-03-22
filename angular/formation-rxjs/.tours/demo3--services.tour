@@ -1,0 +1,76 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Demo 3 : Services",
+  "steps": [
+    {
+      "file": "src/app/rxjs-services/rxjs-services.component.ts",
+      "description": "**Appel à un service depuis une modification de l'interface**\r\n* Construction du flux",
+      "line": 34
+    },
+    {
+      "file": "src/app/rxjs-services/rxjs-services.component.ts",
+      "description": "* On s'abonne à un nouvel evenement",
+      "line": 35,
+      "selection": {
+        "start": {
+          "line": 35,
+          "character": 7
+        },
+        "end": {
+          "line": 35,
+          "character": 16
+        }
+      }
+    },
+    {
+      "file": "src/app/rxjs-services/rxjs-services.component.ts",
+      "description": "* Une fois le résultat récupéré, on s'abonne à un nouvel appel serveur",
+      "line": 42,
+      "selection": {
+        "start": {
+          "line": 42,
+          "character": 13
+        },
+        "end": {
+          "line": 42,
+          "character": 29
+        }
+      }
+    },
+    {
+      "file": "src/app/rxjs-services/rxjs-services.component.ts",
+      "description": "* Au final on va extraire le champ value de notre résultat de l'appel serveur",
+      "line": 48,
+      "selection": {
+        "start": {
+          "line": 48,
+          "character": 13
+        },
+        "end": {
+          "line": 48,
+          "character": 16
+        }
+      }
+    },
+    {
+      "file": "src/app/rxjs-services/rxjs-services.component.ts",
+      "description": "Quand l'évènement de souscription est déclenché, on affiche le contenu du formulaire",
+      "line": 53
+    },
+    {
+      "file": "src/app/rxjs-services/rxjs-services.component.ts",
+      "description": "Quand l'évènement de souscription est déclenché, on affiche le contenu du formulaire\r\n\r\n**On souscrit à l'évènement pour déclencher l'action**",
+      "line": 56,
+      "selection": {
+        "start": {
+          "line": 54,
+          "character": 4
+        },
+        "end": {
+          "line": 56,
+          "character": 20
+        }
+      }
+    }
+  ]
+}

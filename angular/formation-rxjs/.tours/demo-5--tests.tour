@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Demo 5 : Tests",
+  "steps": [
+    {
+      "file": "src/app/app.component.spec.ts",
+      "description": "**Point d'entrée pour le framework de test Jasmine**\r\n* Ce framework n'est pas spécifique à Angular\r\n>> ng test",
+      "line": 6
+    },
+    {
+      "file": "src/app/app.component.spec.ts",
+      "description": "**Test spécifique angular**\r\n* Le fakeasync() est spcifique angular \r\n* Permet de mocker le timing temps réel avec les fonctions de timer\r\n* possibilité d'utiliser l'async spécifique Jasmine pour un projet hors angular : [Documentation Jasmine](https://jasmine.github.io/tutorials/async)\r\n",
+      "line": 12
+    },
+    {
+      "file": "src/app/app.component.spec.ts",
+      "description": "**Tests spécifiques RxJs**\r\n* Syntaxe en lien avec les exemples de [RxMarbles](https://rxmarbles.com)\r\n* Possibilités assez variés sur la gestion du temps [RxJs Marbles Doc](https://rxjs.dev/guide/testing/marble-testing)\r\n",
+      "line": 22
+    }
+  ]
+}

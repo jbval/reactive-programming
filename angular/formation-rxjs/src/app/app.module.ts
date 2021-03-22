@@ -9,6 +9,7 @@ import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.componen
 import { RxjsServicesComponent } from './rxjs-services/rxjs-services.component';
 import { RxjsStoreComponent } from './rxjs-store/rxjs-store.component';
 import { StoreComp1Component } from './rxjs-store/store-comp1/store-comp1.component';
+import { RxjsShareComponent } from './rxjs-share/rxjs-share.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { StoreComp1Component } from './rxjs-store/store-comp1/store-comp1.compon
     RxjsServicesComponent,
     RxjsStoreComponent,
     StoreComp1Component,
+    RxjsShareComponent,
   ],
   imports: [
     BrowserModule,

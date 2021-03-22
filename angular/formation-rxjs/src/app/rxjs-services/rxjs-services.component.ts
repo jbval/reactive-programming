@@ -27,8 +27,10 @@ export class RxjsServicesComponent implements OnInit {
     this.formGroup = new FormGroup({
       lastName: new FormControl(''),
     });
+
     const lastNameValueChanges$ = this.formGroup.get('lastName')
       ?.valueChanges as Observable<string>;
+
     this.searchResult$ = lastNameValueChanges$.pipe(
       switchMap((l) =>
         this.httpService

@@ -4,6 +4,11 @@
   "steps": [
     {
       "file": "src/app.controller.ts",
+      "description": ">> npm run start:dev",
+      "line": 6
+    },
+    {
+      "file": "src/app.controller.ts",
       "description": "Méthode Serveur : Transformation d'une variable synchrone en asynchrone et enchainement des actions",
       "line": 12
     }
