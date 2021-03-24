@@ -1,16 +1,21 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "Demo 2 : share",
+  "title": "Demo 3 : share",
   "steps": [
     {
       "file": "src/app/rxjs-share/rxjs-share.component.ts",
-      "description": "**Share**\r\n",
+      "description": "**Execution d'une requete serveur sans notion de répétition**\r\n",
       "line": 28
     },
     {
       "file": "src/app/rxjs-share/rxjs-share.component.ts",
       "description": "**shareReplay()**\r\n* Ici la dernière valeur sera répétée, intéressant dans le cas d'un appel à un service",
-      "line": 29
+      "line": 41
+    },
+    {
+      "file": "src/app/rxjs-share/rxjs-share.component.ts",
+      "description": "**share()**\r\n* Ici la dernière valeur sera répétée, intéressant dans le cas d'un appel à un service",
+      "line": 34
     }
   ]
 }

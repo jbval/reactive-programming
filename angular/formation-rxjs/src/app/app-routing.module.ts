@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RxjsDebugComponent } from './rxjs-debug/rxjs-debug.component';
 import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.component';
 import { RxjsServicesComponent } from './rxjs-services/rxjs-services.component';
 import { RxjsShareComponent } from './rxjs-share/rxjs-share.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'share', component: RxjsShareComponent },
   { path: 'services', component: RxjsServicesComponent },
   { path: 'store', component: RxjsStoreComponent },
+  { path: 'debug', component: RxjsDebugComponent },
 ];
 
 @NgModule({
