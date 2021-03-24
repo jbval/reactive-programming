@@ -1,7 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+
 import { Observable } from 'rxjs';
-import { share, shareReplay } from 'rxjs/operators';
+import { share, shareReplay, tap } from 'rxjs/operators';
+import { inputValue } from '../rxjs-services/inputValue';
 
 @Component({
   selector: 'app-rxjs-share',
@@ -10,26 +12,45 @@ import { share, shareReplay } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RxjsShareComponent implements OnInit {
-  fullNameShare$: Observable<string>;
-  fullNameShareReplay$: Observable<string>;
-  form: FormGroup;
+  optionRequete = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+    }),
+  };
 
-  constructor() {
-    // Définition de formulaire
-    this.form = new FormGroup({
-      lastName: new FormControl(''),
-      firstName: new FormControl(''),
-    });
+  request$: Observable<inputValue>;
+  requestShareReplay$: Observable<inputValue>;
+  requestShare$: Observable<inputValue>;
 
-    // Point de départ : Observable en entrée
-    const lastName$ = this.form.get('lastName')
-      ?.valueChanges as Observable<string>;
+  constructor(private httpService: HttpClient) {
+    this.request$ = this.httpService
+      .get<inputValue>(`http://localhost:3000/name/test`, this.optionRequete)
+      .pipe(tap((r) => console.log('Requête Exécutée')));
 
-    this.fullNameShare$ = lastName$.pipe(share());
-    this.fullNameShareReplay$ = lastName$.pipe(
+    this.requestShare$ = this.request$.pipe(
+      tap((r) => console.log('RequeteShare exécutée')),
+      share()
+    );
+
+    this.requestShareReplay$ = this.request$.pipe(
+      tap((r) => console.log('RequeteShareReplay exécutée')),
       shareReplay({ refCount: true, bufferSize: 1 })
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.request$.subscribe();
+    this.request$.subscribe();
+    console.log('Souscription Share');
+    this.requestShare$.subscribe((rs) => console.log('share' + rs.value));
+    this.requestShare$.subscribe((rs) => console.log('share' + rs.value));
+    console.log('Souscription ShareReplay');
+    this.requestShareReplay$.subscribe((rs) =>
+      console.log('shareReplay' + rs.value)
+    );
+    this.requestShareReplay$.subscribe((rs) =>
+      console.log('shareReplay' + rs.value)
+    );
+
+  }
 }

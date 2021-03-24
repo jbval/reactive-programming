@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "Demo 3 : Services",
+  "title": "Demo 2 : Services",
   "steps": [
     {
       "file": "src/app/rxjs-services/rxjs-services.component.ts",
