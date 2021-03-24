@@ -17,12 +17,9 @@ import { watch } from 'rxjs-watcher';
 })
 export class RxjsDebugComponent implements OnDestroy {
   numbers$: Observable<number>;
-  // numbersDelay1$: Observable<number>;
-
   numbersWithShare$: Observable<number>;
   numbersWithShareReplay$: Observable<number>;
-  // numbersWithShareDelay1$: Observable<number>;
-  // numbersWithShareReplayDelay1$: Observable<number>;
+
   private readonly stopNumbers$ = new Subject<void>();
   constructor() {
     this.numbers$ = this.getNumbers().pipe(
