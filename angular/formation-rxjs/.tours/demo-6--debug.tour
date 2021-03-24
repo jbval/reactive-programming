@@ -1,5 +1,16 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
   "title": "Demo 6 : Debug",
-  "steps": []
+  "steps": [
+    {
+      "file": "src/app/rxjs-share/rxjs-share.component.ts",
+      "description": "**Debug**\r\n* Utilisation de tap/console.log",
+      "line": 36
+    },
+    {
+      "file": "src/app/rxjs-debug/rxjs-debug.component.ts",
+      "description": "**Debug**\r\n* Utilisation de rxjs-watcher",
+      "line": 26
+    }
+  ]
 }
